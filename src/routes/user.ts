@@ -17,7 +17,7 @@ route.post("/user", [userValidation], async (req: Request, res: Response) => {
     const { username, first_name, last_name, date_of_birth } = req.body;
 
     const name_prefix = `${first_name.charAt(0).toUpperCase()}${
-      last_name && last_name.charAt(0).toUpperCase()
+      last_name ? last_name.charAt(0).toUpperCase() : ""
     }`;
 
     const user = new User({
