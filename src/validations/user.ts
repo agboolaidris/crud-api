@@ -28,7 +28,7 @@ export const userValidation = async (
     if (!date_of_birth || date_of_birth.trim() == "")
       errors.date_of_birth = "date_of_birth is required";
 
-    if (Object.keys(errors).length > 0) return res.status(401).json({ errors });
+    if (Object.keys(errors).length > 0) return res.status(400).json({ errors });
 
     const validateUsername = await User.findOne({ username });
 
@@ -36,7 +36,7 @@ export const userValidation = async (
     if (!validateDate(date_of_birth))
       errors.date_of_birth = "date_of_birth must be in DD-MM-YYYY format";
 
-    if (Object.keys(errors).length > 0) return res.status(401).json({ errors });
+    if (Object.keys(errors).length > 0) return res.status(400).json({ errors });
 
     next();
   } catch (error: any) {

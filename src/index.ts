@@ -19,10 +19,7 @@ async function main() {
     //config cors
     app.use(
       cors({
-        credentials: true,
-        origin: ["http://localhost:3000"],
-        exposedHeaders: ["access-token"],
-        optionsSuccessStatus: 200,
+        origin: "*",
       })
     );
 
